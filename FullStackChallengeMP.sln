@@ -1,0 +1,32 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tv-show-tracker", "tv-show-tracker", "{3DD02B7F-393F-0A4C-FA2C-2690F1348E47}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "backend", "backend", "{374ED36B-1769-36A2-28B1-1456D090D4CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvShowTracker.Api", "tv-show-tracker\backend\TvShowTracker.Api\TvShowTracker.Api.csproj", "{D2C3DE73-B4C6-E35C-6F22-15EB2A39D0C6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D2C3DE73-B4C6-E35C-6F22-15EB2A39D0C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2C3DE73-B4C6-E35C-6F22-15EB2A39D0C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2C3DE73-B4C6-E35C-6F22-15EB2A39D0C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2C3DE73-B4C6-E35C-6F22-15EB2A39D0C6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{374ED36B-1769-36A2-28B1-1456D090D4CD} = {3DD02B7F-393F-0A4C-FA2C-2690F1348E47}
+		{D2C3DE73-B4C6-E35C-6F22-15EB2A39D0C6} = {374ED36B-1769-36A2-28B1-1456D090D4CD}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D42E5CC5-BE18-4E70-8E02-DB8046F27B5C}
+	EndGlobalSection
+EndGlobal
