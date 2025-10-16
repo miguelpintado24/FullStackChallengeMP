@@ -5,7 +5,6 @@ using System.Text;
 using TvShowTracker.Api.Data;
 using TvShowTracker.Api.Services;
 using TvShowTracker.Api.Models;
-using TvShowTracker.Api.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -44,6 +43,17 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "AllowFrontend",
+        policy => policy
+            .WithOrigins("http://localhost:5173")
+            .AllowAnyHeader()
+            .AllowAnyMethod());
+});
+
+app.UseCors("AllowFrontend");
 
 app.UseAuthentication();
 app.UseAuthorization();

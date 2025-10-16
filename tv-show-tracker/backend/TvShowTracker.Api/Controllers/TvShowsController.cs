@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TvShowTracker.Api.Data;
 using TvShowTracker.Api.Models;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace TvShowTracker.Api.Controllers
 {
@@ -11,10 +12,12 @@ namespace TvShowTracker.Api.Controllers
     public class TvShowsController : ControllerBase
     {
         private readonly AppDbContext _context;
+        private readonly IMemoryCache _cache;
 
-        public TvShowsController(AppDbContext context)
+        public TvShowsController(AppDbContext context, IMemoryCache cache)
         {
             _context = context;
+            _cache = cache;
         }
 
         // GET: api/tvshows

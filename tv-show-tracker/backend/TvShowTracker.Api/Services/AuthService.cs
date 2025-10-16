@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using TvShowTracker.Api.Data;
 using TvShowTracker.Api.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace TvShowTracker.Api.Services
 {
@@ -82,6 +83,16 @@ namespace TvShowTracker.Api.Services
             using var hmac = new HMACSHA512(salt);
             var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
             return computedHash.SequenceEqual(hash);
+        }
+
+        public async Task DeleteAccountAsync(string username)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+            if (user == null)
+                throw new Exception("User not found.");
+
+            _context.Users.Remove(user);
+            await _context.SaveChangesAsync();
         }
     }
 }

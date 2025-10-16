@@ -1,5 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using TvShowTracker.Api.Services;
+using Microsoft.AspNetCore.Authorization;
+using TvShowTracker.Api.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace TvShowTracker.Api.Controllers
 {
@@ -8,6 +11,7 @@ namespace TvShowTracker.Api.Controllers
     public class AuthController : ControllerBase
     {
         private readonly AuthService _authService;
+        private readonly AppDbContext _context;
 
         public AuthController(AuthService authService)
         {
@@ -39,6 +43,22 @@ namespace TvShowTracker.Api.Controllers
             catch (Exception ex)
             {
                 return Unauthorized(new { message = ex.Message });
+            }
+        }
+
+        [Authorize]
+        [HttpDelete("delete")]
+        public async Task<IActionResult> DeleteAccount()
+        {
+            try
+            {
+                var username = User.Identity!.Name!;
+                await _authService.DeleteAccountAsync(username);
+                return Ok("Account deleted successfully.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
             }
         }
     }
