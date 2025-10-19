@@ -12,12 +12,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// SQLite database
+// database
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("Default")));
 
 // JWT authentication
-var jwtKey = builder.Configuration["Jwt:Key"] ?? "key12345!";
+var jwtKey = builder.Configuration["Jwt:Key"] ?? "secretlongkey12345!_secretlongkey12345!_secretlongkey12345!_secretlongkey12345!";
 var key = Encoding.ASCII.GetBytes(jwtKey);
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -32,18 +32,12 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
+// services
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddHostedService<RecommendationService>();
 builder.Services.AddMemoryCache();
 
-var app = builder.Build();
-
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
+// CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: "AllowFrontend",
@@ -52,6 +46,14 @@ builder.Services.AddCors(options =>
             .AllowAnyHeader()
             .AllowAnyMethod());
 });
+
+var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
 app.UseCors("AllowFrontend");
 

@@ -17,7 +17,7 @@ export default function NavBar() {
         <Typography variant="h6" sx={{ flexGrow: 1 }}>TV Show Tracker</Typography>
         {token && (
           <>
-            <Button color="inherit" component={Link} to="/">Shows</Button>
+            <Button color="inherit" component={Link} to="/tvshows">Shows</Button>
             <Button color="inherit" component={Link} to="/favorites">Favorites</Button>
             <Button color="inherit" onClick={logout}>Logout</Button>
           </>

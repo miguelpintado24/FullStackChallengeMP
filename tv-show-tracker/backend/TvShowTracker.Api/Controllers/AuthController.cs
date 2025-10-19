@@ -11,7 +11,6 @@ namespace TvShowTracker.Api.Controllers
     public class AuthController : ControllerBase
     {
         private readonly AuthService _authService;
-        private readonly AppDbContext _context;
 
         public AuthController(AuthService authService)
         {

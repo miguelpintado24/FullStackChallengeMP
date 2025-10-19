@@ -14,6 +14,7 @@ export default function Register() {
       await api.post("/auth/register", form);
       setMessage("Registered successfully! You can now log in.");
     } catch (err) {
+      console.log(err);
       setMessage(err.response?.data?.message || "Error registering user.");
     }
   };

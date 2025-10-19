@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://localhost:5001/api", // your .NET API base URL
+  baseURL: "http://localhost:5259/api", // your .NET API base URL
 });
 
 // Automatically attach JWT token
