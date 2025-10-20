@@ -1,0 +1,46 @@
+# TV Show Tracker - Full Stack Challenge
+
+## Author: Miguel Pintado
+
+## Overview
+This project is a **full-stack TV show tracker** built with a **.NET 8 Web API backend** and a **React JS frontend**.  
+Allows users to register, log in, browse TV shows, and manage their list of favorites. 
+
+This solution implements a full-stack TV show tracker using **.NET 8** for the backend and **React (Vite)** for the frontend.  
+The backend follows an architecture with services, controllers, and dependency injection.
+Uses **Entity Framework Core**, and **JWT** for secure authentication and data persistence.  
+It exposes **REST APIs** for user registration, login, show listing, and favorites management.  
+The frontend, built with **React**, **React Router**, and **Material UI**.  
+**CORS (Cross-Origin Resource Sharing)** is configured to allow safe communication between frontend and backend.
+The app supports user authentication, show browsing, and favorites tracking features. 
+
+---
+
+### Backend
+- **.NET 8 Web API**
+- **Entity Framework Core**
+- **JWT Authentication**
+
+### Frontend
+- **React JS** (created with Vite)
+- **React Router DOM**
+- **Material UI**
+
+---
+
+## Setup Instructions
+
+### Backend (will run on https://localhost:5259/)
+open terminal
+cd backend
+cd TvShowTracker.Api
+dotnet restore
+dotnet build
+dotnet run
+
+### Frontend (will run on http://localhost:5173/)
+open terminal
+cd frontend
+cd tvShowTracker-frontend
+npm install
+npm run dev
